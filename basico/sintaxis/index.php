@@ -55,5 +55,17 @@ function add(int $a, int $b): int {
 }
 
 // echo add('10', '20'); //! declare(strict_types=1); para que alerte la falla de datos
-echo add(10, 20);
+//! el sistema de funciones de php no diferencia entre mayusculas y minusculas
+echo AdD(10, 20);
+
+
+//! funciones existentes
+
+echo strtoupper("braian hernán");
+//! soporta acentos
+echo mb_strtoupper("braian hernán");
+//! como cuenta longitud de bytes el acento lo toma como 1 mas
+echo strlen("hernán");
+//! para utf-8
+echo mb_strlen("hernán");
 ?>
