@@ -61,9 +61,10 @@ class Sale {
 
 class Concept {
   public string $description;
-  public float $amount;
+  public int|float $amount;
 
-  public function __construct(string $description, float $amount){
+  //! tipos UNION int|float permite multiple entrada de formato
+  public function __construct(string $description, int|float $amount){
     $this->description = $description;
     $this->amount = $amount;
   }
