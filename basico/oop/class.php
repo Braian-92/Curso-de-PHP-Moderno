@@ -1,19 +1,18 @@
 <?php
 declare(strict_types=1);
 
-$sale = new Sale(10.5, date('y-m-d'));
-$onlineSale = new OnlineSale(15, date('y-m-d'), 'Tarjeta');
+$sale = new Sale(date('y-m-d'));
+$onlineSale = new OnlineSale(date('y-m-d'), 'Tarjeta');
 echo $onlineSale->createInvoice() . ' - desde onlineSale<br/>';
 echo $onlineSale->showInfo() . ' - desde onlineSale<br/>';
-$sale = new Sale(10.5, date('y-m-d'));
+$sale = new Sale(date('y-m-d'));
 echo Sale::$count . ' - estatic <br/>';
 //! eventos globales, se aplica a todas las instancias realizadas
 echo Sale::reset();
-$sale = new Sale(10.5, date('y-m-d'));
+$sale = new Sale(date('y-m-d'));
 echo Sale::$count . ' - estatic <br/>';
 
 
-$sale->total = 11;
 $sale->date = date('y');
 
 echo '<pre>';
@@ -23,23 +22,26 @@ echo '</pre>';
 echo $sale->createInvoice() . '<br/>';
 
 $concept = new Concept("cerveza", 10);
+$concept2 = new Concept("cerveza2", 12);
 $sale->addConcept($concept);
+$sale->addConcept($concept2);
 
-echo '<pre>';
-var_dump($sale->concepts);
-echo '</pre>';
+echo 'Total: ' . $sale->getTotal() . '<br/>';
 
 class Sale {
-  public float $total;
+  // protected float $total; //! solo visual desde la misma clase y su herencia pero no por fuera
+  // private float $total;  //! solo visual desde la misma clase y no en su herencia y tampoco por fuera
+  // public float $total;  //! visual en los 3
+  protected float $total;
   public string $date;
-  public array $concepts;
+  private array $concepts;
   //! propiedad estatica
   public static $count;
 
-  public function __construct(float $total, string $date){
+  public function __construct(string $date){
     echo 'Se ha creado el objeto.<br/>';
-    $this->total = $total;
     $this->date = $date;
+    $this->total = 0;
     $this->concepts = [];
     self::$count++;
   }
@@ -55,6 +57,11 @@ class Sale {
 
   public function addConcept(Concept $concept){
     $this->concepts[] = $concept;
+    $this->total += $concept->amount;
+  }
+
+  public function getTotal(): float{
+    return $this->total;
   }
 
   public function createInvoice(): string{
@@ -62,11 +69,12 @@ class Sale {
   }
 }
 
+
 class OnlineSale extends Sale{
   public string $paymentMethod;
 
-  public function __construct(float $total, string $date, string $paymentMethod){
-    parent::__construct($total, $date);
+  public function __construct(string $date, string $paymentMethod){
+    parent::__construct($date);
     $this->paymentMethod = $paymentMethod;
   }
 
