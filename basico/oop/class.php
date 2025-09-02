@@ -1,19 +1,20 @@
 <?php
 declare(strict_types=1);
 
-$sale = new Sale(date('y-m-d'));
-$onlineSale = new OnlineSale(date('y-m-d'), 'Tarjeta');
+$sale = new Sale(date('Y-m-d'));
+$onlineSale = new OnlineSale(date('Y-m-d'), 'Tarjeta');
 echo $onlineSale->createInvoice() . ' - desde onlineSale<br/>';
 echo $onlineSale->showInfo() . ' - desde onlineSale<br/>';
-$sale = new Sale(date('y-m-d'));
+$sale = new Sale(date('Y-m-d'));
 echo Sale::$count . ' - estatic <br/>';
 //! eventos globales, se aplica a todas las instancias realizadas
 echo Sale::reset();
-$sale = new Sale(date('y-m-d'));
+$sale = new Sale(date('Y-m-d'));
 echo Sale::$count . ' - estatic <br/>';
 
 
-$sale->date = date('y');
+$sale->setDate(date('Y-m-d'));
+// $sale->setDate('ojhadolkhasldkhokhjasohdsa'); //! detectar error
 
 echo '<pre>';
 var_dump($sale);
@@ -33,7 +34,7 @@ class Sale {
   // private float $total;  //! solo visual desde la misma clase y no en su herencia y tampoco por fuera
   // public float $total;  //! visual en los 3
   protected float $total;
-  public string $date;
+  private string $date;
   private array $concepts;
   //! propiedad estatica
   public static $count;
@@ -62,6 +63,17 @@ class Sale {
 
   public function getTotal(): float{
     return $this->total;
+  }
+
+  public function getDate(): string{
+    return $this->date;
+  }
+
+  public function setDate(string $date){
+    if(strlen($date) > 10 || strlen($date) < 10){
+      echo "<h1>ERROR: La fecha es incorrecta ($date)</h1>";
+    }
+    $this->date = $date;
   }
 
   public function createInvoice(): string{
