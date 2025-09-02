@@ -68,4 +68,17 @@ echo mb_strtoupper("braian hernán");
 echo strlen("hernán");
 //! para utf-8
 echo mb_strlen("hernán");
+
+//! array
+
+
+$arr1 = [1,2,3,4];
+$arr2 = [5,6,7,8];
+$arr3 = array_merge($arr1, $arr2);
+
+echo '<pre>';
+var_dump($arr3);
+echo '</pre>';
+
+
 ?>
