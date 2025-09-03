@@ -30,4 +30,16 @@ class SaveProcess {
   public function  __construct(SaveInterface $saveManager){
     $this->saveManager = $saveManager;
   }
+
+  public function keep() {
+    echo "hacemos algo de antes<br/>";
+    $this->saveManager->save();
+  }
 }
+
+$beerRepository = new BeerRepository();
+$document = new Document();
+//! Ya que ambos tienen el mismo modelo se puede usar como inyeccion de dependencia
+// $saveProcess = new SaveProcess($beerRepository);
+$saveProcess = new SaveProcess($document);
+$saveProcess->keep();
