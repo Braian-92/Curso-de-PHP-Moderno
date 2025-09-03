@@ -17,3 +17,17 @@ class Document implements SendInterface, SaveInterface {
     echo "Se guarda la venta en la nube";
   }
 }
+
+class BeerRepository implements SaveInterface {
+  function save(){
+    echo "Se guarda en la nube";
+  }
+}
+
+class SaveProcess {
+  private SaveInterface $saveManager;
+
+  public function  __construct(SaveInterface $saveManager){
+    $this->saveManager = $saveManager;
+  }
+}

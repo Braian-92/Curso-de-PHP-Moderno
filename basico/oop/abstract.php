@@ -16,7 +16,7 @@ abstract class Product {
   protected float $price;
   protected string $name;
 
-  abstract public function  calculatePrice() : float;
+  abstract public function calculatePrice() : float;
 
   public function getName(): string{
     return $this->name;
