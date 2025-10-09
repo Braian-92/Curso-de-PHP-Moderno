@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "8a502a90-7d6a-4de1-9907-e63fbc67fe16",
+		"name": "Curso Php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16284468"
+	},
+	"item": [
+		{
+			"name": "HTTP",
+			"item": [
+				{
+					"name": "POST http",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "PUT http",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Zamudio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost\\Curso-de-PHP-Moderno\\basico\\http\\put.php",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"http",
+								"put.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE http",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET http",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
