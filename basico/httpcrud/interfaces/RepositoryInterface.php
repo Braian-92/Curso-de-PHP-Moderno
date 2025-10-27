@@ -7,5 +7,5 @@ interface RepositoryInterface {
   public function get(): array;
   public function update($data);
   public function delete(int $id);
-  public function exist(int $id): bool;
+  public function exists(int $id): bool;
 }
