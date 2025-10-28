@@ -1,11 +1,11 @@
 <?php
 
-require_once __DIR__ . '/interfaces/ValidateInterface.php';
+require_once __DIR__ . '/interfaces/ValidatorInterface.php';
 require_once __DIR__ . '/interfaces/RepositoryInterface.php';
 
 require_once __DIR__ . '/validators/Validator.php';
-require_once __DIR__ . '/exceptions/ValidateException.php';
-require_once __DIR__ . '/exceptions/DataExceptions.php';
+require_once __DIR__ . '/exceptions/ValidationException.php';
+require_once __DIR__ . '/exceptions/DataException.php';
 require_once __DIR__ . '/data/Repository.php';
 
 require_once __DIR__ . '/business/Get.php';
