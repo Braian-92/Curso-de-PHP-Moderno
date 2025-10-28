@@ -15,8 +15,8 @@ class Validator implements ValidatorInterface
 
   public function validateAdd($data): bool
   { 
-    //! empty valida si no existe o si esta vacio o es null
-    if(empty($data['name'])){
+    //! Validar que data sea un array y tenga la clave name
+    if (!is_array($data) || !isset($data['name']) || trim($data['name']) === '') {
       $this->error = 'Nombre es obligatorio';
       return false;
     }
@@ -26,13 +26,20 @@ class Validator implements ValidatorInterface
 
   public function validateUpdate($data): bool
   { 
-    //! empty valida si no existe o si esta vacio o es null
-    if(empty($data['id'])){
+    //! Validar que data sea un array
+    if (!is_array($data)) {
+      $this->error = 'Datos inválidos';
+      return false;
+    }
+
+    //! Validar ID
+    if (!isset($data['id']) || empty($data['id'])) {
       $this->error = 'ID es obligatorio';
       return false;
     }
 
-    if(empty($data['name'])){
+    //! Validar nombre
+    if (!isset($data['name']) || trim($data['name']) === '') {
       $this->error = 'Nombre es obligatorio';
       return false;
     }

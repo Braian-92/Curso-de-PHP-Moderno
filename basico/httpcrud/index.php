@@ -1,7 +1,4 @@
 <?php
-
-// echo __DIR__ . '/autoload.php';
-// exit;
 require_once __DIR__ . '/autoload.php';
 
 use app\business\Add;
@@ -20,24 +17,34 @@ $repository = new Repository();
 $validator = new Validator();
 
 try {
+
   switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
+
+      
       $body = json_decode(file_get_contents('php://input'), true);
       $add = new Add($repository, $validator);
       $add->add($body);
+      http_response_code(201);
+      echo json_encode(['message' => 'Elemento agregado correctamente']);
       break;
     case 'PUT':
       $body = json_decode(file_get_contents('php://input'), true);
       $update = new Update($repository, $validator);
       $update->update($body);
+      http_response_code(200);
+      echo json_encode(['message' => 'Elemento actualizado correctamente']);
       break;
     case 'DELETE':
       $id = $_GET['id'];
       $delete = new Delete($repository, $validator);
       $delete->delete($id);
+      http_response_code(200);
+      echo json_encode(['message' => 'Elemento eliminado correctamente']);
       break;
     case 'GET':
       $get = new Get($repository);
+      http_response_code(200);
       echo json_encode($get->get());
       break;
     
@@ -58,4 +65,7 @@ try {
   //! error en el servidor
   http_response_code(500);
   echo json_encode(['error' => $e->getMessage()]);
+} catch (TypeError $e) {
+  http_response_code(400);
+  echo json_encode(['error' => 'Se capturo un TypeError ' . $e->getMessage()]);
 }

@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "8a502a90-7d6a-4de1-9907-e63fbc67fe16",
+		"name": "Curso Php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16284468"
+	},
+	"item": [
+		{
+			"name": "HTTP",
+			"item": [
+				{
+					"name": "GET http",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/Curso-de-PHP-Moderno/basico/http/get.php?name=braian&edad=31",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"http",
+								"get.php"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "braian"
+								},
+								{
+									"key": "edad",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST http",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Braian\",\r\n    \"edad\": 31\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost\\Curso-de-PHP-Moderno\\basico\\http\\post.php",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"http",
+								"post.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT http",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"nombre\": \"Zamudio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost\\Curso-de-PHP-Moderno\\basico\\http\\put.php",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"http",
+								"put.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE http",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/Curso-de-PHP-Moderno/basico/http/delete.php?id=1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"http",
+								"delete.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HTTP_CRUD",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/Curso-de-PHP-Moderno/basico/httpcrud/",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"httpcrud",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Eve\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/Curso-de-PHP-Moderno/basico/httpcrud/",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"httpcrud",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"BraianZ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/Curso-de-PHP-Moderno/basico/httpcrud/",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"httpcrud",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/Curso-de-PHP-Moderno/basico/httpcrud/",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"Curso-de-PHP-Moderno",
+								"basico",
+								"httpcrud",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
