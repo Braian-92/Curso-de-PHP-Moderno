@@ -1,0 +1,16 @@
+{
+    "name": "braian/test",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Braian\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Braian-92",
+            "email": "zamudiobraianhernan@gmail.com"
+        }
+    ],
+    "require": {}
+}
