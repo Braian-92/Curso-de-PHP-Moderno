@@ -17,10 +17,10 @@ use app\exceptions\DataException;
 
 use app\database\RepositoryDB;
 
-// $repository = new Repository();
 $validator = new Validator();
 
 try {
+  // $repository = new Repository();
   $repository = new RepositoryDB();
 
   switch ($_SERVER['REQUEST_METHOD']) {

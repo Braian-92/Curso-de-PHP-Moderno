@@ -36,26 +36,45 @@ class RepositoryDB extends BaseRepository implements RepositoryInterface{
 
   public function get(): array
   {
-    return [];
+    $sql = "SELECT * FROM ".self::TABLE;
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function exists($id): bool
   {
-    return false;
+    $sql = "SELECT * FROM " . self::TABLE . " WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    return $stmt->rowCount() > 0;
   }
 
   public function create($data)
   {
-    
+    $sql = "INSERT INTO " . self::TABLE . " (name, alcohol, idBrand) VALUES (:name, :alcohol, :idBrand)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([
+      'name' => $data['name'],
+      'alcohol' => $data['alcohol'],
+      'idBrand' => $data['idBrand']
+    ]);
+    return $this->pdo->lastInsertId();
   }
 
-  public function update($data)
-  {
-    
+  public function update($data){
+    $sql = "UPDATE ".self::TABLE." "
+          . "SET name = :name, alcohol = :alcohol, idBrand = :idBrand "
+          . "WHERE id = :id";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute($data);
   }
 
   public function delete($id)
   {
-    
+    $sql = "DELETE FROM ".self::TABLE." WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
   }
 }
