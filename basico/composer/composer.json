@@ -1,0 +1,17 @@
+{
+    "name": "braian/test",
+    "description": "pruebas para composer",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Braian\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "braian"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
