@@ -3,8 +3,15 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Braian\\Test\\": "src/"
-        }
+            "Braian\\Test\\": "src/",
+            "app\\interfaces\\": "interfaces/",
+            "app\\data\\": "data/",
+            "app\\excel\\": "excel/",
+            "app\\business\\": "business/"
+        },
+        "files": [
+            "config/database.php"
+        ]
     },
     "authors": [
         {
@@ -12,5 +19,7 @@
             "email": "zamudiobraianhernan@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpoffice/phpspreadsheet": "^5.2"
+    }
 }
