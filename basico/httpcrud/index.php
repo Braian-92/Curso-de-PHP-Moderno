@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json');
+
 require_once __DIR__ . '/autoload.php';
 
 use app\business\Add;
@@ -13,10 +15,13 @@ use app\validators\Validator;
 use app\exceptions\ValidationException;
 use app\exceptions\DataException;
 
-$repository = new Repository();
+use app\database\RepositoryDB;
+
+// $repository = new Repository();
 $validator = new Validator();
 
 try {
+  $repository = new RepositoryDB();
 
   switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
@@ -61,6 +66,10 @@ try {
   //! el recurso no se encuentra
   http_response_code(404);
   echo json_encode(['error' => $e->getMessage()]);
+} catch (PDOException $e) { 
+  //! error en el servidor
+  http_response_code(500);
+  echo json_encode(['error' => 'Error en la base de datos: '.$e->getMessage()]);
 } catch (\Exception $e) { //! el "\" es para poder usar las clases globales del php
   //! error en el servidor
   http_response_code(500);
