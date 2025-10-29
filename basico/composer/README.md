@@ -21,11 +21,11 @@ https://packagist.org/
 # paquete
 https://packagist.org/packages/nesbot/carbon
 
-# instala la biblioteca
+# instala la biblioteca (realizar primero el fix de abajo)
 composer require nesbot/carbon
 
 ## ERROR ## 
-
+(tambien sumo gd para el excel)
 ## ⚙️ Cómo habilitar la extensión ZIP en XAMPP
 
 1. Abrir el archivo de configuración de PHP:
@@ -33,9 +33,11 @@ composer require nesbot/carbon
 
 2. Buscar la siguiente línea (puede estar comentada con un `;`):
    ;extension=zip
+   ;extension=gd
 
 3. Quitar el punto y coma `;` para habilitarla:
    extension=zip
+   extension=gd
 
 4. Guardar los cambios en el archivo php.ini.
 
@@ -43,3 +45,10 @@ composer require nesbot/carbon
 
 ## FIN ERROR
 
+
+## paquete phpoffice
+
+https://packagist.org/packages/phpoffice/phpspreadsheet
+
+
+composer require phpoffice/phpspreadsheet
